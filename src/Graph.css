@@ -1,0 +1,11 @@
+
+#graph{
+    height: 65%;  
+    width : 90%;
+    border:1px solid #000000;
+    padding: 1em 1%;
+    padding-top: 0; 
+    position: absolute;
+    right :5%;
+
+}

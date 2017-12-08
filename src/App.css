@@ -1,0 +1,80 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+.graphical{
+  height: 100%;
+  width: 94%;
+  animation: example 4s;
+}
+
+#actions-hide{
+  padding-top: 118px; padding-bottom: 119px; background-color: rgb(46, 187, 209);
+  width: 11px;
+  position: fixed;
+  height: 16px;
+  bottom: 60px;
+  left: 0px;
+  padding-left: 14px;
+  padding-right: 15px;
+}
+
+
+.lateral{
+  position: fixed;
+   left:0px;
+   top:190px;
+   width: 5%; 
+}
+.panel{
+   background-color: rgb(46, 187, 209);
+   position: fixed;
+   color: white;
+   width: 0px;
+   background: #777;
+  z-index: 99;
+}
+#actions{
+  bottom: 60px;
+  left: 43px;
+  width:150px;
+  height: 253px;
+  
+}
+#actions>button{
+  display: inline-block;
+}
+#actions>p:hover{
+    background-color: black;
+}

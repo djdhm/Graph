@@ -111,7 +111,7 @@ class Graph extends Component {
 
   constructor(props) {
     super(props);
-
+    console.log(props);
     this.state = {
       graph: sample,
       selected: {}
@@ -161,48 +161,57 @@ class Graph extends Component {
   // Node 'mouseUp' handler
   onSelectNode = viewNode => {
     // Deselect events will send Null viewNode
+    console.log(this.props.isModifiable);
+    if(this.props.isModifiable){
 
- 
-    // test if the click is in a node to draw Edge 
+ // test if the click is in a node to draw Edge 
     // if not create a node 
     if (!!viewNode){
-     // Coloriate the selected node 
-      this.setState({selected: viewNode});
-      // if it's the first node selected store it , to use it later in 
-        // edge creation
-      //else Create the biderictionel edge beetween the two nodes 
-      if(attache.length===0) {
-        attache.push(viewNode.id);       
-        console.log(viewNode)
-      }else{
-        // test if the second clicked node is not the same one (First Node)
-        // to avoid creating reflexive edges
-             if(attache[0]!==viewNode.id){
-                // Create the edge in a variable to add it to the graph sample 
-                //  test if there is an edge beetween this two node to avoid defining more than edge beetwenn two node
-              let t={"source":attache[0],"target":viewNode.id,"type":EMPTY_EDGE_TYPE};
-              let test=sample.edges
-              .filter((e)=>(e.source===t.source && e.target===t.target) || (e.source===t.target && e.target===t.source) )
-              console.log(test)
-              if(!test.length) {
-                sample.edges.push(t);
-                sample.edges.push({"source":t.target,"target":t.source,"type":EMPTY_EDGE_TYPE});
-                console.log(sample.edges);
-             }
-             else{
-               alert("cest le meme");
-             }
-          
-        }
-        /**/
-        attache=[];
-      }
-    } else{
-      sample.nodes.push({"id":sample.nodes.length+1,"title":"test","x":45,"y":50,"type":SPECIAL_TYPE});
-      attache=[]
-      alert("Out");
-      this.setState({selected: {}});
+      // Coloriate the selected node 
+       this.setState({selected: viewNode});
+       // if it's the first node selected store it , to use it later in 
+         // edge creation
+       //else Create the biderictionel edge beetween the two nodes 
+       if(attache.length===0) {
+         attache.push(viewNode.id);       
+         console.log(viewNode)
+       }else{
+         // test if the second clicked node is not the same one (First Node)
+         // to avoid creating reflexive edges
+              if(attache[0]!==viewNode.id){
+                 // Create the edge in a variable to add it to the graph sample 
+                 //  test if there is an edge beetween this two node to avoid defining more than edge beetwenn two node
+               let t={"source":attache[0],"target":viewNode.id,"type":EMPTY_EDGE_TYPE};
+               let test=sample.edges
+               .filter((e)=>(e.source===t.source && e.target===t.target) || (e.source===t.target && e.target===t.source) )
+               console.log(test)
+               if(!test.length) {
+                 sample.edges.push(t);
+                 sample.edges.push({"source":t.target,"target":t.source,"type":EMPTY_EDGE_TYPE});
+                 console.log(sample.edges);
+              }
+              else{
+                alert("cest le meme");
+              }
+           
+         }
+         /**/
+         attache=[];
+       }
+     } else{
+       sample.nodes.push({"id":sample.nodes.length+1,"title":"test","x":45,"y":50,"type":SPECIAL_TYPE});
+       attache=[]
+       alert("Out");
+       this.setState({selected: {}});
+     }
+
+
+
+    } 
+    else{
+      alert("Inmodifiable");
     }
+   
   }
 
   // Edge 'mouseUp' handler

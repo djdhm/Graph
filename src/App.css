@@ -27,11 +27,11 @@
   to { transform: rotate(360deg); }
 }
 @keyframes example {
-  0%   {background-color:red; left:0px; top:0px;}
-  25%  {background-color:yellow; left:200px; top:0px;}
-  50%  {background-color:blue; left:200px; top:200px;}
-  75%  {background-color:green; left:0px; top:200px;}
-  100% {background-color:red; left:0px; top:0px;}
+  0%   {background-color:red; left:10%; bottom:630px;}
+  25%  {background-color:yellow; left:30%; bottom:630px;}
+  50%  {background-color:blue; left:60%; bottom:630px;}
+  75%  {background-color:green; left:40%; bottom:630px;}
+  100% {background-color:red; left:50%; bottom:630px;}
 }
 .graphical{
   height: 100%;
@@ -77,4 +77,12 @@
 }
 #actions>p:hover{
     background-color: black;
+}
+
+.popup{
+  position: fixed;
+  animation-name: example;
+  animation-play-state: display;
+  animation-duration: 4s;
+  z-index: 99;
 }
